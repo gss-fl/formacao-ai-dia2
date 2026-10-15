@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-PT" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090c0d" />
+    <meta name="description" content="Desenha ou carrega dígitos e observa uma rede neural treinada com manuscritos MNIST e imagens de fontes com ruído. Toda a inferência acontece no navegador." />
+    <link rel="icon" href="./brand/gss-group-logo.png" type="image/png" />
+    <title>Neural Lab | GSS Group</title>
+    <script src="./theme.js" ></script>
+    <script type="module" crossorigin src="./assets/index-CItRzRWp.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BflTMCIc.css">
+  </head>
+  <body>
+    <div class="ambient-lights" data-testid="ambient-lights" aria-hidden="true">
+      <span class="ambient-light ambient-light-left"></span>
+      <span class="ambient-light ambient-light-center"></span>
+      <span class="ambient-light ambient-light-right"></span>
+    </div>
+    <div class="shell">
+      <header class="site-header">
+        <a class="brand-lockup" href="./" aria-label="GSS Group Neural Lab">
+          <img src="./brand/gss-group-logo.png" alt="GSS Group, a Halma company" width="400" height="283" />
+          <span>Neural Lab</span>
+        </a>
+        <nav aria-label="Navegação principal">
+          <a href="#laboratorio">Laboratório</a>
+          <a id="network-link" href="#network-panel" hidden>Rede</a>
+          <a href="#sobre">Modelo</a>
+        </nav>
+        <button id="theme-lamp" class="theme-lamp" type="button" aria-label="Ativar modo claro" title="Ativar modo claro. Puxa a corrente ou clica">
+          <svg width="44" height="52" viewBox="0 0 48 60" fill="none" aria-hidden="true">
+            <ellipse class="lamp-glow" cx="20" cy="33" rx="19" ry="14"></ellipse>
+            <path class="lamp-wire" d="M20 3v10m-3 0h6"></path>
+            <circle class="lamp-bulb" cx="20" cy="33" r="4"></circle>
+            <path class="lamp-shade" d="M13 13h14l7 19H6l7-19Z"></path>
+            <path class="lamp-rim" d="M6 32h28"></path>
+            <g class="lamp-cord">
+              <path class="lamp-chain" d="M34 33v13"></path>
+              <circle class="lamp-handle" cx="34" cy="49" r="3"></circle>
+            </g>
+          </svg>
+        </button>
+      </header>
+      <main>
+        <section class="intro" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow">Laboratório de visão</p>
+            <h1 id="hero-title">Faz um traço.<br /><span>Vê a rede decidir.</span></h1>
+            <p class="hero-lede">Desenha um dígito ou uma sequência separada e acompanha a rede a transformar píxeis numa previsão.</p>
+          </div>
+          <div class="hero-stage" aria-hidden="true">
+            <span class="stage-beam"></span>
+            <span class="stage-orbit stage-orbit-one"></span>
+            <span class="stage-orbit stage-orbit-two"></span>
+            <span class="hero-digit" id="hero-readout">?</span>
+            <span class="hero-readout-label" id="hero-readout-label">À espera do teu traço</span>
+            <strong class="hero-readout-score" id="hero-readout-score">Dígitos 0-9</strong>
+          </div>
+        </section>
+        <div id="model-status" class="notice" role="status" aria-live="polite">A carregar o modelo...</div>
+        <div class="workbench" id="laboratorio">
+          <section class="input-panel" aria-labelledby="input-title">
+            <div class="section-heading"><h2 id="input-title">Experimentar</h2><span>Entrada real</span></div>
+            <div class="mode-picker" role="group" aria-labelledby="mode-title">
+              <span id="mode-title">Tipo de leitura</span>
+              <div>
+                <button id="single-mode" type="button" aria-pressed="true"><strong>Um dígito</strong><small>Leitura clássica</small></button>
+                <button id="sequence-mode" type="button" aria-pressed="false"><strong>Sequência</strong><small>Até 8 separados</small></button>
+              </div>
+            </div>
+            <div class="tabs" role="tablist" aria-label="Origem da imagem"><button id="draw-tab" role="tab" aria-controls="draw-panel" aria-selected="true">Desenhar</button><button id="upload-tab" role="tab" aria-controls="upload-panel" aria-selected="false" tabindex="-1">Carregar imagens</button></div>
+            <div id="draw-panel" role="tabpanel" aria-labelledby="draw-tab">
+              <div class="drawing-wrap"><canvas id="drawing" width="336" height="336" tabindex="0" aria-label="Área de desenho de um dígito. Usa rato, caneta ou toque. No teclado, setas deslocam o cursor e Shift com setas desenha." aria-describedby="drawing-help"></canvas><span id="pen-cursor" aria-hidden="true"></span></div>
+              <p class="hint" id="drawing-help">Desenha um dígito centrado, com alguma margem. No teclado, usa Shift e as setas.</p>
+              <div class="actions"><button id="classify" class="primary" disabled><span id="classify-label">Classificar desenho</span><span aria-hidden="true">→</span></button><button id="clear" class="secondary">Limpar</button></div>
+            </div>
+            <div id="upload-panel" role="tabpanel" aria-labelledby="upload-tab" hidden>
+              <label class="file-picker" for="files"><span class="upload-mark" aria-hidden="true">↑</span><strong>Escolher imagens</strong><span>PNG ou JPEG / até 20 ficheiros</span><input id="files" type="file" accept="image/png,image/jpeg" multiple disabled /></label>
+              <p class="hint" id="upload-help">Até 10 MiB e 16 megapíxeis por imagem. Os ficheiros ficam neste navegador.</p>
+              <p id="upload-status" role="status" aria-live="polite"></p><ul id="file-list" class="file-list" aria-label="Resultados das imagens"></ul>
+            </div>
+          </section>
+          <section class="result-panel" aria-labelledby="result-title">
+            <div class="section-heading"><h2 id="result-title">Leitura da rede</h2><span>Saída ao vivo</span></div>
+            <div id="empty-result" class="empty-result"><span class="empty-digit" aria-hidden="true">?</span><h3>A próxima previsão começa contigo.</h3><p>Desenha ou carrega uma imagem para iluminar a rede.</p></div>
+            <div id="result" hidden>
+              <div class="prediction-heading"><div><p id="result-source" class="eyebrow"></p><div class="predicted-digit" id="prediction"></div><p id="top-score"></p></div><figure class="canonical"><canvas id="canonical" width="28" height="28" aria-label="Entrada efetiva de 28 por 28 píxeis usada na inferência"></canvas><figcaption id="canonical-caption">Entrada da rede<br />28 × 28 píxeis</figcaption></figure></div>
+              <div id="sequence-summary" class="sequence-summary" hidden>
+                <div class="sequence-heading"><strong>Passagens individuais</strong><span>Seleciona para explorar</span></div>
+                <div id="segment-list" class="segment-list" role="group" aria-label="Dígitos detetados na sequência"></div>
+                <p id="sequence-warning" class="sequence-warning" role="status" aria-live="polite"></p>
+              </div>
+              <div id="scores" class="scores" aria-label="Pontuações para os dez dígitos"></div>
+              <p class="hint">As pontuações softmax mostram a preferência do modelo. Não garantem que a previsão está certa.</p>
+            </div>
+            <p id="input-error" class="error" role="alert"></p>
+          </section>
+        </div>
+        <section id="network-panel" class="network-panel" hidden></section>
+        <section class="about" id="sobre">
+          <div class="about-heading"><span class="about-mark" aria-hidden="true">784</span><h2>Da luz de cada píxel a uma decisão.</h2></div>
+          <div class="about-copy"><p>O modelo foi treinado neste projeto com manuscritos MNIST e imagens próprias de fontes, incluindo linhas e pintas de ruído. Cada dígito recebe uma passagem própria de 784 píxeis e produz dez valores de saída.</p><p>Desenhos e fotografias podem diferir dos exemplos de treino. A pontuação exprime a preferência do modelo; não garante que a resposta esteja certa.</p><p class="model-meta" id="model-meta">A carregar arquitetura e pesos verificados…</p></div>
+        </section>
+      </main>
+      <footer>
+        <div><img src="./brand/gss-group-logo.png" alt="GSS Group, a Halma company" width="400" height="283" /><span>Formação de IA / Dia 2</span></div>
+        <span>Inferência local no teu navegador</span>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 2,
+  "modelId": "digits-cnn-v6",
+  "modelType": "tiny-cnn-v1",
+  "preprocessVersion": "image-adapter-v2",
+  "temperature": 1.0,
+  "files": {
+    "model.json": "1b09eb450cf6f170d28746f35bad2c9a62ee56ca1f3a03c122a3e063b4a6b93c"
+  }
+}
