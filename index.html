@@ -8,8 +8,8 @@
     <link rel="icon" href="./brand/gss-group-logo.png" type="image/png" />
     <title>Neural Lab | GSS Group</title>
     <script src="./theme.js" ></script>
-    <script type="module" crossorigin src="./assets/index-xm2SR_Q6.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CRv_rXzg.css">
+    <script type="module" crossorigin src="./assets/index-DwJSNLgm.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DrP4reK7.css">
   </head>
   <body>
     <div class="ambient-lights" data-testid="ambient-lights" aria-hidden="true">
@@ -113,13 +113,17 @@
       </footer>
     </div>
     <div id="neo-overlay" class="neo-overlay" lang="en" role="dialog" aria-modal="true" tabindex="-1" aria-labelledby="neo-bloom-title" aria-describedby="neo-bloom-description" hidden>
-      <canvas id="neo-byte-field" aria-hidden="true"></canvas>
-      <div class="neo-halo" aria-hidden="true"></div>
-      <div class="neo-brand-stage">
-        <div class="neo-brand-pulse"><img src="./brand/gss-group-logo.png" width="400" height="283" alt="GSS Group, a Halma company" /></div>
-        <p id="neo-bloom-description">Follow the white rabbit.</p>
+      <h2 id="neo-bloom-title" class="neo-sr-only">Wake up, Neo.</h2>
+      <p id="neo-bloom-description" class="neo-sr-only">Follow the white rabbit.</p>
+      <p id="neo-terminal" class="neo-terminal" aria-hidden="true"><span class="neo-prompt">&gt;</span><span id="neo-wake-text"></span><span class="neo-cursor"></span></p>
+      <div id="neo-scene" class="neo-scene" hidden>
+        <canvas id="neo-byte-field" aria-hidden="true"></canvas>
+        <div class="neo-halo" aria-hidden="true"></div>
+        <div class="neo-brand-stage">
+          <div class="neo-brand-pulse"><img src="./brand/gss-group-logo.png" width="400" height="283" alt="GSS Group, a Halma company" /></div>
+          <p id="neo-rabbit-line" class="neo-rabbit-line" aria-hidden="true"><span id="neo-rabbit-text"></span><span class="neo-cursor"></span></p>
+        </div>
       </div>
-      <h2 id="neo-bloom-title" class="neo-bloom-title">Wake up, Neo.</h2>
       <button id="neo-dismiss" class="neo-accessible-close" type="button" aria-label="Close"></button>
     </div>
   </body>
