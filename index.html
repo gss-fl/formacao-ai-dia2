@@ -8,8 +8,8 @@
     <link rel="icon" href="./brand/gss-group-logo.png" type="image/png" />
     <title>Neural Lab | GSS Group</title>
     <script src="./theme.js" ></script>
-    <script type="module" crossorigin src="./assets/index-DcuqzXWw.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-xDcg5aD9.css">
+    <script type="module" crossorigin src="./assets/index-xm2SR_Q6.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CRv_rXzg.css">
   </head>
   <body>
     <div class="ambient-lights" data-testid="ambient-lights" aria-hidden="true">
@@ -85,11 +85,8 @@
             <div class="section-heading"><h2 id="result-title">Leitura da rede</h2><span>Saída ao vivo</span></div>
             <div id="empty-result" class="empty-result"><span class="empty-digit" aria-hidden="true">?</span><h3>A próxima previsão começa contigo.</h3><p>Desenha ou carrega uma imagem para iluminar a rede.</p></div>
             <section id="neo-result" class="neo-result" lang="en" hidden role="status" aria-live="polite" aria-atomic="true">
-              <p class="neo-kicker">NEO</p>
               <h3>Wake up,<br /><span>Neo.</span></h3>
               <p class="neo-message">Follow the white rabbit.</p>
-              <button id="neo-replay" class="secondary" type="button">Replay Byte Bloom</button>
-              <p class="neo-footnote">Experimental easter egg · use clear, separated letters.</p>
             </section>
             <div id="result" hidden>
               <div class="prediction-heading"><div><p id="result-source" class="eyebrow"></p><div class="predicted-digit" id="prediction"></div><p id="top-score"></p></div><figure class="canonical"><canvas id="canonical" width="28" height="28" aria-label="Entrada efetiva de 28 por 28 píxeis usada na inferência"></canvas><figcaption id="canonical-caption">Entrada da rede<br />28 × 28 píxeis</figcaption></figure></div>
@@ -115,21 +112,15 @@
         <span>Inferência local no teu navegador</span>
       </footer>
     </div>
-    <dialog id="neo-overlay" class="neo-overlay" lang="en" aria-labelledby="neo-bloom-title" aria-describedby="neo-bloom-description">
+    <div id="neo-overlay" class="neo-overlay" lang="en" role="dialog" aria-modal="true" tabindex="-1" aria-labelledby="neo-bloom-title" aria-describedby="neo-bloom-description" hidden>
       <canvas id="neo-byte-field" aria-hidden="true"></canvas>
       <div class="neo-halo" aria-hidden="true"></div>
-      <header class="neo-overlay-header">
-        <span>GSS GROUP / BYTE BLOOM</span>
-        <button id="neo-close" type="button" autofocus>Close <kbd>Esc</kbd></button>
-      </header>
       <div class="neo-brand-stage">
         <div class="neo-brand-pulse"><img src="./brand/gss-group-logo.png" width="400" height="283" alt="GSS Group, a Halma company" /></div>
         <p id="neo-bloom-description">Follow the white rabbit.</p>
       </div>
-      <footer class="neo-overlay-footer">
-        <div><h2 id="neo-bloom-title">Wake up, Neo.</h2><p>Experimental easter egg</p></div>
-        <button id="neo-burst-replay" type="button">Replay burst <span aria-hidden="true">↗</span></button>
-      </footer>
-    </dialog>
+      <h2 id="neo-bloom-title" class="neo-bloom-title">Wake up, Neo.</h2>
+      <button id="neo-dismiss" class="neo-accessible-close" type="button" aria-label="Close"></button>
+    </div>
   </body>
 </html>

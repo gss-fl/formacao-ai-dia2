@@ -16,4 +16,7 @@ Avaliação de texto impresso limpo: 424/480 sequências NEO reconhecidas (88,33
 a funcionalidade experimental tem limitações e não constitui OCR geral.
 
 Byte Bloom: explosão de bytes em ecrã inteiro, logo GSS Group a pulsar e
-“Follow the white rabbit.”. Fechar com Esc ou Close; movimento reduzido suportado.
+“Follow the white rabbit.”. Fullscreen nativo quando permitido pelo navegador;
+sem botões nem indicações sobrepostas. Esc ou um clique no fundo fecham a surpresa.
+Se a entrada automática for bloqueada, o primeiro toque tenta abrir fullscreen.
+Movimento reduzido suportado.
