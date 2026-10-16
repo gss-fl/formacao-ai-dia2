@@ -14,3 +14,6 @@ Este repositório contém apenas o pacote público de execução.
 Avaliação de texto impresso limpo: 424/480 sequências NEO reconhecidas (88,33%),
 0/1000 ativações em números e 0/240 em controlos. A meta de 95% não foi atingida;
 a funcionalidade experimental tem limitações e não constitui OCR geral.
+
+Byte Bloom: explosão de bytes em ecrã inteiro, logo GSS Group a pulsar e
+“Follow the white rabbit.”. Fechar com Esc ou Close; movimento reduzido suportado.
