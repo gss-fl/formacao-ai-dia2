@@ -1,14 +1,16 @@
 # Classificador visual de dígitos
 
-Aplicação pública: https://gss-fl.github.io/formacao-ai-dia2/
+Dígitos 0–9 e sequências de até oito dígitos separados, com inferência local no navegador.
 
-CNN treinada neste projeto, com desenho, upload de imagens, leitura de dígitos
-separados e inspeção dos pesos e ativações reais. A inferência é executada no
-navegador. As imagens carregadas não são enviadas para um serviço de classificação.
+Easter egg experimental: escrever NEO ou neo com letras claras e separadas no modo Sequência.
+O terceiro carácter redondo só é interpretado como O depois de N e E.
+Letras ligadas, ruído e escrita livre podem impedir o reconhecimento.
 
-Modelo: `digits-cnn-v6`; preparação: `image-adapter-v2`.
-SHA-256 dos pesos: `1b09eb450cf6f170d28746f35bad2c9a62ee56ca1f3a03c122a3e063b4a6b93c`.
+Os pesos numéricos são digits-cnn-v6. Pontuações reais, sem alterações por nome
+ou caso; valores a partir de 0,999 são apresentados como ≥99,9%.
 
-Este repositório contém apenas o pacote de execução do site e os pesos.
-Não contém os materiais da prova, conjuntos de avaliação ou o histórico de desenvolvimento.
-As pontuações do modelo não garantem o acerto de qualquer imagem.
+Este repositório contém apenas o pacote público de execução.
+
+Avaliação de texto impresso limpo: 424/480 sequências NEO reconhecidas (88,33%),
+0/1000 ativações em números e 0/240 em controlos. A meta de 95% não foi atingida;
+a funcionalidade experimental tem limitações e não constitui OCR geral.

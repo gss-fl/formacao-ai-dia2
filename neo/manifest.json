@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "kind": "neo-easter-egg",
+  "modelId": "auxiliary-v3",
+  "modelType": "digit-validity-neo-cnn-v2",
+  "temperature": 1,
+  "preprocessVersion": "image-adapter-v2",
+  "files": {
+    "model.json": "fa0a23444d900e16c321ec3b8b39f04978ad41798d19eb4a1e8c70ed590051ad"
+  }
+}
